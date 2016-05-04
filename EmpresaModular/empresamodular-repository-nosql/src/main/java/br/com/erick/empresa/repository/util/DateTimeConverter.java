@@ -1,0 +1,47 @@
+package br.com.erick.empresa.repository.util;
+
+import org.bson.BsonReader;
+import org.bson.BsonWriter;
+import org.bson.codecs.Codec;
+import org.bson.codecs.DecoderContext;
+import org.bson.codecs.EncoderContext;
+import org.joda.time.DateTime;
+
+/**
+* The Class DateTimeConverter.
+* 
+* @author victor.prado
+*/
+public class DateTimeConverter implements Codec<DateTime> {
+
+   /*
+    * (non-Javadoc)
+    * 
+    * @see org.bson.codecs.Encoder#encode(org.bson.BsonWriter, java.lang.Object, org.bson.codecs.EncoderContext)
+    */
+   @Override
+   public void encode(BsonWriter writer, DateTime value, EncoderContext encoderContext) {
+       writer.writeDateTime(value.getMillis());
+   }
+
+   /*
+    * (non-Javadoc)
+    * 
+    * @see org.bson.codecs.Encoder#getEncoderClass()
+    */
+   @Override
+   public Class<DateTime> getEncoderClass() {
+       return DateTime.class;
+   }
+
+   /*
+    * (non-Javadoc)
+    * 
+    * @see org.bson.codecs.Decoder#decode(org.bson.BsonReader, org.bson.codecs.DecoderContext)
+    */
+   @Override
+   public DateTime decode(BsonReader reader, DecoderContext decoderContext) {
+       return new DateTime(reader.readDateTime());
+   }
+
+}
