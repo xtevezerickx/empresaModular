@@ -62,7 +62,7 @@ public class TelefoneTeste {
 
     @Test(timeout = 1000)
     public void deve_aceitar_ddd_valido() {
-        String ddd = "011";
+        Integer ddd = 11;
         telefone.setDdd(ddd);
         assertEquals(ddd, telefone.getDdd());
     }
@@ -106,21 +106,15 @@ public class TelefoneTeste {
 
     @Test
     public void nao_deve_aceitar_ddd_vazio() {
-        telefone.setDdd("");
+        telefone.setDdd(0);
         assertTrue(hasErrors(telefone, "Campo DDD não pode ser vazio"));
     }
 
     @Test
     public void nao_deve_aceitar_ddd_com_tamanho_errado() {
-        telefone.setDdd("44444");
+        telefone.setDdd(44444);
         assertTrue(hasErrors(telefone, "DDD com tamanho incorreto"));
 
-    }
-
-    @Test
-    public void nao_deve_aceitar_ddd_com_letras() {
-        telefone.setDdd("01d");
-        assertTrue(hasErrors(telefone, "DDD não pode conter letras"));
     }
 
     @Test

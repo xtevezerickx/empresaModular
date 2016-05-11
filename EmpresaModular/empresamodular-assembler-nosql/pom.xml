@@ -7,19 +7,12 @@
   </parent>
   <artifactId>empresamodular-assembler-nosql</artifactId>
  
-  <dependencies>
-  	<dependency>
-  		<groupId>br.com.erick.empresamodular</groupId>
-  		<artifactId>empresamodular-model-nosql</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	
-  	<dependency>
-  		<groupId>br.com.erick.empresamodular</groupId>
-  		<artifactId>empresamodular-model-nosql</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  		<type>test-jar</type>
-  	</dependency>
-  	
-  </dependencies>
+ <dependencies>
+ 
+  <dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.9.3</version>
+		</dependency>
+ </dependencies>
 </project>

@@ -1,7 +1,5 @@
 package br.com.contmatic.entity.empresa;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -145,9 +143,9 @@ public class Empresa {
      * @throws IllegalArgumentException caso o Telefone já exista na empresa ou tenha menos que 2 telefones
      * 
      */
-    public void setTelefone(Telefone telefone) {
+    public void setTelefone(Set<Telefone> telefone) {
         // this.validateTelefoneIgual(telefone);
-        this.telefone.add(telefone);
+        this.telefone = telefone;
 
     }
 
@@ -261,25 +259,6 @@ public class Empresa {
     }
 
     /**
-     * Valida se a empresa tem o mesmo telefone cadastrado
-     *
-     * @param telefone
-     * @throws IllegalArgumentException caso a empresa já tenha o mesmo telefone cadastrado
-     */
-    private void validateTelefoneIgual(Telefone telefone) {
-        checkArgument(!(this.telefone.contains(telefone)), "Empresa não pode ter dois telefones iguais cadastrados");
-    }
-
-    /**
-     * Validata se a empresa tem o mesmo endereco cadastrado
-     *
-     * @param endereco the endereco
-     */
-    private void validateEnderecoIgual(Endereco endereco) {
-        checkArgument(!(this.endereco.contains(endereco)), "Empresa não pode ter dois endereços iguais cadastrados");
-    }
-
-    /**
      * Valida se o parametro recebido data de alteração é maior que a data de criação
      * 
      * @param nomeProprietario
@@ -315,9 +294,7 @@ public class Empresa {
     @Override
     public String toString() {
         DateTimeFormatter dataFormatada = DateTimeFormat.forPattern("dd/MM/YYYY");
-        dataCriacao = new DateTime();
         String dataCriacaoString = dataFormatada.print(dataCriacao);
-        dataAlteracao = new DateTime();
         String dataAlteracaoString = dataFormatada.print(dataAlteracao);
         return new ToStringBuilder(this, StandardToStringStyle.MULTI_LINE_STYLE).append(this.nomeFantasia != null ? "Nome Fantasia: " + this.nomeFantasia : null)
                 .append(this.nomeProprietario != null ? "Nome do Propietário: " + this.nomeProprietario : null).append(this.cnpj != null ? "CNPJ: " + this.cnpj : null)

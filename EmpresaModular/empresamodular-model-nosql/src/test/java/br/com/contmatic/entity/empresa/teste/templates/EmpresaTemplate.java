@@ -21,12 +21,26 @@ public class EmpresaTemplate implements TemplateLoader {
          */
         Fixture.of(Empresa.class).addTemplate("valido", new Rule() {
             {
-                add("cnpj", random("12345678910124", "55555555555555", "33333333333333"));
+                add("cnpj", cnpj());
                 add("email", random("${cnpj}.gmail.com", "${cnpj}.hotmail.com"));
-                add("nomeFantasia", random("empresa 1", "empresa 2", "empresa 3"));
-                add("nomeProprietario", random("Erick", "Maia", "Silva"));
+                add("nomeProprietario", name());
+                add("nomeFantasia", name());
                 add("dataCriacao", new DateTime(2016, 04, 25, 0, 0, 0));
               add("dataAlteracao", new DateTime(2016, 04, 25, 0, 0, 0).plusDays(2));
+                add("telefone", has(2).of(Telefone.class, "valido","celular"));
+                add("endereco", has(2).of(Endereco.class, "valido"));
+            }
+        });
+        
+        
+        
+        Fixture.of(Empresa.class).addTemplate("atualizar", new Rule() {
+            {
+                add("nomeFantasia", random("empresa 1", "empresa 2", "empresa 3"));
+                add("nomeProprietario", random("Erick", "Maia", "Silva"));
+                add("email", random("${nomeProprietario}.gmail.com", "${nomeProprietario}.hotmail.com"));
+                add("dataCriacao", new DateTime(2016, 04, 25, 0, 0, 0));
+                add("dataAlteracao", new DateTime(2016, 04, 25, 0, 0, 0).plusDays(2));
                 add("telefone", has(2).of(Telefone.class, "valido"));
                 add("endereco", has(2).of(Endereco.class, "valido"));
             }

@@ -7,11 +7,6 @@ import org.bson.codecs.DecoderContext;
 import org.bson.codecs.EncoderContext;
 import org.joda.time.DateTime;
 
-/**
-* The Class DateTimeConverter.
-* 
-* @author victor.prado
-*/
 public class DateTimeConverter implements Codec<DateTime> {
 
    /*

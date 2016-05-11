@@ -36,10 +36,9 @@ public class Telefone {
     /** Recebe o numero de DDD. */
 
     @NotNull(message = "É necessário preencher o campo DDD")
-    @Length(max = TAMANHO_DDD, message = "DDD com tamanho incorreto")
-    @NotEmpty(message = "Campo DDD não pode ser vazio")
-    @Pattern(regexp = "\\d{3}", message = "DDD não pode conter letras")
-    private String ddd;
+    @Range(min = 11L, max = 99L)
+    @Pattern(regexp="\\d{2}")
+    private Integer ddd;
 
     /** Recebe o tipo de telefone,etc */
 
@@ -72,7 +71,7 @@ public class Telefone {
      * 
      * @return String ddd
      */
-    public String getDdd() {
+    public Integer getDdd() {
         return ddd;
     }
 
@@ -81,7 +80,7 @@ public class Telefone {
      * 
      * @param ddd
      */
-    public void setDdd(String ddd) {
+    public void setDdd(Integer ddd) {
         this.ddd = ddd;
     }
 

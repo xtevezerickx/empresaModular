@@ -32,5 +32,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="/empresamodular-model-nosql"/>
+	<classpathentry kind="lib" path="C:/Users/Erick Maia/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar" sourcepath="C:/Users/Erick Maia/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="joda-time"/>
+			<attribute name="maven.artifactId" value="joda-time"/>
+			<attribute name="maven.version" value="2.9.3"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
